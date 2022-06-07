@@ -1,0 +1,58 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style1.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <title>RNWA INVENTORY</title>
+
+    <script>
+        $(document).ready(function () {
+            load_data();
+            function load_data(query) {
+                $.ajax({
+                    url: "index.php",
+                    method: "post",
+                    data: { query: query },
+                    success: function (data) {
+                        $('#result').html(data);
+                    }
+                });
+            }
+
+            $('#search_text').keyup(function () {
+                var search = $(this).val();
+                if (search != '') {
+                    load_data(search);
+                }
+                else {
+                    load_data();
+                }
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+
+
+    <form>
+        <select name="users" onchange="showUser(this.value)">
+            <option value="">Izaberi Osobu:</option>
+            <option value="1">Ivan Ivic</option>
+            <option value="2">Admin Demo</option>
+
+        </select>
+    </form>
+    <br>
+    <div id="txtHint"><b>Info Osobe</b></div>
+
+</body>
+
+</html>
