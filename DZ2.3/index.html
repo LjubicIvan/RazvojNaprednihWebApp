@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Inventory</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../DZ 1/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<script>
+
+    function loadData() {
+        axios.get("index.php")
+            .then(response => {
+                document.getElementById("txtHint").innerHTML = response.data;
+            })
+            .catch(error => console.error(error));
+    }
+
+
+    function showHint(str) {
+        axios.get("index.php?s=" + str)
+            .then(response => {
+                document.getElementById("txtHint").innerHTML = response.data;
+            })
+            .catch(error => console.error(error));
+    }
+</script>
+
+<body onload="loadData()">
+<div id="txtHint"><b>Info Osobe</b></div>
+
+
+        <section class="header">
+            <form>
+                Search: <input type="text" class="search" onkeyup="showHint(this.value)">
+            </form>
+            <div id="txtHint"></div>
+        </section>
+    </div>
+</body>
+
+</html>
