@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<definitions name="MyDefinition"
+ targetNamespace="urn:myTargetNamespace"
+ xmlns:tns="urn:myTns"
+ xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+ xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+ xmlns="http://schemas.xmlsoap.org/wsdl/">
+ <message name="myRequest">
+  <part name="reqParam" type="xsd:double"/>
+ </message>
+ <message name="myResponse">
+  <part name="resParam" type="xsd:double"/>
+ </message>
+	
+ <portType name="MyPortType">
+  <operation name="BAMtoEUR">
+   <input message="tns:myRequest"/>
+   <output message="tns:myResponse"/>
+  </operation>
+	 <operation name="EURtoBAM">
+		 <input message="tns:myRequest"/>
+		 <output message="tns:myResponse"/>
+	 </operation>
+		 <operation name="EURtoHRK">
+			 <input message="tns:myRequest"/>
+			 <output message="tns:myResponse"/>
+		 </operation>
+			 <operation name="HRKtoEUR">
+				 <input message="tns:myRequest"/>
+				 <output message="tns:myResponse"/>
+			 </operation>
+ </portType>
+ <binding name="MyBinding" type="tns:MyPortType">
+  <soap:binding style="rpc"
+   transport="http://schemas.xmlsoap.org/soap/http"/>
+  <operation name="BAMtoEUR">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:body use="encoded"
+     namespace="urn:myInputNamespace"
+     encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+   </input>
+   <output>
+    <soap:body use="encoded"
+     namespace="urn:myOutputNamespace"
+     encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+   </output>
+  </operation>
+	 <operation name="EURtoBAM">
+		 <soap:operation soapAction=""/>
+		 <input>
+			 <soap:body use="encoded"
+			  namespace="urn:myInputNamespace"
+			  encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+		 </input>
+		 <output>
+			 <soap:body use="encoded"
+			  namespace="urn:myOutputNamespace"
+			  encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+		 </output>
+	 </operation>
+	 <operation name="EURtoHRK">
+		 <soap:operation soapAction=""/>
+		 <input>
+			 <soap:body use="encoded"
+			  namespace="urn:myInputNamespace"
+			  encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+		 </input>
+		 <output>
+			 <soap:body use="encoded"
+			  namespace="urn:myOutputNamespace"
+			  encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+		 </output>
+	 </operation>
+	 <operation name="HRKtoEUR">
+		 <soap:operation soapAction=""/>
+		 <input>
+			 <soap:body use="encoded"
+			  namespace="urn:myInputNamespace"
+			  encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+		 </input>
+		 <output>
+			 <soap:body use="encoded"
+			  namespace="urn:myOutputNamespace"
+			  encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+		 </output>
+	 </operation>
+ </binding>
+
+
+	
+	
+ <service name="MyService">
+  <documentation>Returns a greeting string.
+  </documentation>
+  <port name="MyPort" binding="tns:MyBinding">
+   <soap:address
+  location="http://localhost/rnwa-main/dz4.1/phpWebServis/primjer_2/HelloServerWsdl.php"/>
+  </port>
+ </service>
+</definitions>
