@@ -2,7 +2,7 @@
     class Database {
         // DB Parameters
         private $host = 'localhost';
-        private $db_name = 'hr_dept';
+        private $db_name = '1410inventory';
         private $username = 'root';
         private $password = '';
         private $connection ;
