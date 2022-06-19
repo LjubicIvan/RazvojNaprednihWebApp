@@ -14,3 +14,5 @@ DZ5--MVC
 DZ6-- GraphQl
 
 DZ7--Autorizacija Rest, Cookies i OAuth
+
+TIM 18
