@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Inventory</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+<script>
+    function loadData() {
+        fetch('load.php')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("txtHint").innerHTML = data;
+            })
+            .catch(error => console.error(error));
+    }
+
+    function showHint(str) {
+        fetch("search.php?s=" + str)
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("txtHint").innerHTML = data;
+            })
+            .catch(error => console.error(error));
+    }
+</script>
+
+<body onload="loadData()">
+    <div class="container">
+        <header class="nav">
+            <ul class="topnav">
+                <li><a href="#home">Inventory</a></li>
+                <li><a href="#">Pretraga djelatnika fetch</a></li>
+                
+            </ul>
+           
+        </header>
+
+
+
+
+        <section class="header">
+            <form>
+                Search: <input type="text" class="search" onkeyup="showHint(this.value)">
+            </form>
+            <div id="txtHint"></div>
+        </section>
+    </div>
+</body>
+
+</html>
