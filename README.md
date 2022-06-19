@@ -3,7 +3,7 @@
 
 DZ1--Web Sjediste
 
-DZ2--Dodavanje nove tablice u bazu podataka(user), ispravljanje greski
+DZ2--Dodavanje nove tablice u bazu podataka(user,employee), ispravljanje greski
 
 DZ3--REST
 
